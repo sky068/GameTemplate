@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"gun_3_bullet_2_1_go","_duration":0.25,"wrapMode":0,"curveData":{"paths":{"Bullet":{"props":{"scale":[]}}},"props":{"scale":[{"frame":0,"value":{"__type__":"cc.Vec2","x":1,"y":1}},{"frame":0.25,"value":{"__type__":"cc.Vec2"},"curve":"quadOut"}]}},"events":[{"frame":0.25,"func":"gun3_bullet_go","params":[]}]}

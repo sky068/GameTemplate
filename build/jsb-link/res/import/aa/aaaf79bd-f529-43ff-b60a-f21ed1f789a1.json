@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"sidebar_show","_duration":0.16666666666666666,"curveData":{"paths":{"mask":{"props":{"active":[{"frame":0,"value":true}]}},"sideBg":{"props":{"x":[{"frame":0,"value":-425,"curve":"cubicOut"},{"frame":0.16666666666666666,"value":-325}]}}}}}

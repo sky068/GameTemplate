@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">Planet Guardian</string>
+    <string name="facebook_app_id" translatable="false">2280904298887652</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb2280904298887652</string>
+</resources>

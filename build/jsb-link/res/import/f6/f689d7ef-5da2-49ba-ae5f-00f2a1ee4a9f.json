@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"gun3_1_attack","_duration":1,"sample":30,"wrapMode":0,"curveData":{"paths":{"gun3_effect":{"props":{"opacity":[{"frame":0,"value":0},{"frame":0.5,"value":255},{"frame":1,"value":0}]}}},"props":{"opacity":[]}},"events":[{"frame":0.5,"func":"gun3_Launch","params":[]}]}

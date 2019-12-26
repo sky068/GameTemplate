@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'PlanetGuardian' target in the 'PlanetGuardian' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+#endif

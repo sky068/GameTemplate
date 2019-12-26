@@ -1,0 +1,1 @@
+{"__type__":"cc.AnimationClip","_name":"ani_build_go","_duration":0.16666666666666666,"sample":30,"curveData":{"paths":{"build_grid_mask_node/build_grid_mask":{"props":{"opacity":[]}}},"props":{"opacity":[{"frame":0,"value":255},{"frame":0.16666666666666666,"value":0}]}}}
