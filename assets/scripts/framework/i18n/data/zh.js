@@ -24,5 +24,7 @@ module.exports = {
     "ph_get": '免费',
     'collect': '收集',
     'revive': '复活继续',
-    'tip_free_coins_max': '当日领取已达最大次数'
+    'tip_free_coins_max': '当日领取已达最大次数',
+    'btn_ok': "确定",
+    'btn_cancle': "取消",
 };

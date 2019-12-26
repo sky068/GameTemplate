@@ -6,12 +6,13 @@ const ZIndex = {
     // 基于CANVAS
     POP_BASE: 1,
     LOADING: 888,
+    ALERT: 998,
     TIP: 999,
 
     // 基于POP
     POP_MASK: -999, // POP遮罩
 
-    GUIDE: 9999,
+    GUIDE: 900,
 };
 
 // 设计分辨率

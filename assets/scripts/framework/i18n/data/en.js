@@ -17,4 +17,6 @@ module.exports = {
     'collect': 'Collect',
     'revive': 'Revive',
     'tip_free_coins_max': 'Reached max number',
+    'btn_ok': "OK",
+    'btn_cancle': "Cancle",
 };

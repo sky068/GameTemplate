@@ -7,7 +7,7 @@ cc.Class({
 
     statics: {
         init: function () {
-            // this.alert = require('alert');
+            this.alert = require('Alert');
             // this.mask = require('mask');
             this.loading = require('Loading');
             this.tip = require('Tip');
