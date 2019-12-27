@@ -6,9 +6,13 @@ cc.Class({
     extends: cc.Component,
     properties: {
         normalEffPF: cc.Prefab,
+        p1: cc.Node,
+        p2: cc.Node,
     },
 
     start () {
+        this.pp1 = this.p1.getComponent("ProgressBar");
+        this.pp2 = this.p2.getComponent("ProgressCircle");
 
     },
 
@@ -42,36 +46,23 @@ cc.Class({
                 break;
             }
             case "d3": {
-                for (let i=0; i<20; i++) {
-                    let eff = cc.instantiate(this.normalEffPF);
-                    eff.parent = this.node;
-                    eff.position = cc.v2(Math.random()*10*50, Math.random()*10*80);
-                    eff.getComponent("NormalEffect").play("play2", ()=>{
-                        // zy.ui.tip.show("播放完毕");
-                    });
-                }
+                zy.ui.tip.show("我是tips，我是tips");
                 break;
             }
             case "d4": {
-                for (let i=0; i<20; i++) {
-                    let eff = cc.instantiate(this.normalEffPF);
-                    eff.parent = this.node;
-                    eff.position = cc.v2(Math.random()*10*50, Math.random()*10*80);
-                    eff.getComponent("NormalEffect").play("play3", ()=>{
-                        // zy.ui.tip.show("播放完毕");
-                    });
-                }
+                this.pp1.progress = 0;
+                this.pp1.setProgressBarToPercent(1, 1, ()=>{
+                    zy.ui.tip.show("完成");
+                });
+
                 break;
             }
             case "d5": {
-                for (let i=0; i<20; i++) {
-                    let eff = cc.instantiate(this.normalEffPF);
-                    eff.parent = this.node;
-                    eff.position = cc.v2(Math.random()*10*50, Math.random()*10*80);
-                    eff.getComponent("NormalEffect").play("play5", ()=>{
-                        // zy.ui.tip.show("播放完毕");
-                    });
-                }
+                this.pp2.progress = 0;
+                this.pp2.setProgressBarToPercent(1, 1, ()=>{
+                    zy.ui.tip.show("完成");
+                });
+
                 break;
             }
             default:

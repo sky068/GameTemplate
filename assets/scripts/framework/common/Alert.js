@@ -53,7 +53,6 @@ cc.Class({
             this.contentLabel.node.height = 260;
             this.contentLabel.horizontalAlign = cc.Label.HorizontalAlign.LEFT;
         }
-        zy.ui.tip.show(this.contentLabel.node.width);
     },
 
     confirmCallback () {
