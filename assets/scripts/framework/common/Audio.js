@@ -17,26 +17,60 @@ cc.Class({
 
         init () {
             this.curBGMUrl = null;
+            this.curBGMClip = null;
+
+            this.bgmVolume = 0.9;
+            this.effVolume = 1;
+            this.bgmEnabled = true;
+            this.effEnabled = true;
+
+            const bgmEnabled = cc.sys.localStorage.getItem('bgmEnabled');
+            if (bgmEnabled != null && bgmEnabled == 'false') {
+                this.bgmEnabled = false;
+            }
+
+            const bgmVolume = cc.sys.localStorage.getItem('bgmVolume');
+            if (bgmVolume != null) {
+                this.bgmVolume = parseFloat(bgmVolume);
+                cc.audioEngine.setMusicVolume(bgmVolume);
+            }
+
+            const effEnabled = cc.sys.localStorage.getItem('effEnabled');
+            if (effEnabled != null && effEnabled == 'false') {
+                this.effEnabled = false;
+            }
+
+            const effVolume = cc.sys.localStorage.getItem('effVolume');
+            if (effVolume != null) {
+                this.effVolume = parseFloat(effVolume);
+                cc.audioEngine.setEffectsVolume(effVolume);
+            }
+        },
+
+        // 当前bgmurl
+        getCurBGMUrl: function () {
+            return this.curBGMUrl;
         },
 
         playBGM (url, force) {
-            if (!zy.dataMng.userData.soundOn) {
-                return;
-            }
-
             // 如果已经在播放就不播了
             if (this.curBGMUrl && this.curBGMUrl == url && !force) {
                 return;
             }
 
-            if (this.curBGMUrl) {
-                this.uncache(this.curBGMUrl);
+            this.curBGMUrl = url;
+
+            if (!this.bgmEnabled) {
+                return;
             }
 
-            this.curBGMUrl = url;
+            if (this.curBGMClip) {
+                this.uncache(this.curBGMClip);
+            }
 
             cc.loader.loadRes(url, cc.AudioClip, (err, clip)=>{
                 if (!err) {
+                    this.curBGMClip = clip;
                     cc.audioEngine.playMusic(clip, true);
                 }
             });
@@ -55,7 +89,7 @@ cc.Class({
         },
 
         playEffect (url, loop=false) {
-            if (!zy.dataMng.userData.soundOn) {
+            if (!this.effEnabled) {
                 return;
             }
 
@@ -74,17 +108,12 @@ cc.Class({
             cc.audioEngine.resumeAllEffects();
         },
 
-        setBGMVolume (v=1) {
-            cc.audioEngine.setMusicVolume(v);
+        stopALlEffects () {
+            cc.audioEngine.stopAllEffects();
         },
 
-        setEffectVolume (v=1) {
-            cc.audioEngine.setEffectsVolume(v);
-        },
-
-        uncache (url) {
-            const audioUrl = cc.url.raw(url);
-            cc.audioEngine.uncache(audioUrl);
+        uncache (clip) {
+            cc.audioEngine.uncache(clip);
         },
 
         uncacheAll () {
@@ -103,10 +132,64 @@ cc.Class({
             cc.audioEngine.stopAll();
         },
 
+        setBGMEnabled (enabled) {
+            if (this.bgmEnabled != enabled) {
+                cc.sys.localStorage.setItem('bgmEnabled', String(enabled));
+                this.bgmEnabled = enabled;
+                if (this.bgmEnabled == true && this.curBGMUrl != null) {
+                    this.playBGM(this.curBGMUrl, true);
+                } else {
+                    this.stopBGM();
+                }
+            }
+        },
+
+        getBGMEnabled () {
+            return this.bgmEnabled;
+        },
+
+        setBGMVolume (v) {
+            if (this.bgmVolume != v) {
+                cc.sys.localStorage.setItem('bgmVolume', v);
+                this.bgmVolume = v;
+                cc.audioEngine.setMusicVolume(v);
+            }
+        },
+
+        getBGMVomue () {
+            return this.bgmVolume;
+        },
+
+        setEffectEnabled (enabled) {
+            if (this.effEnabled != enabled) {
+                cc.sys.localStorage.setItem('effEnabled', String(enabled));
+                this.effEnabled = enabled;
+                if (!enabled) {
+                    this.stopALlEffects();
+                }
+            }
+        },
+
+        getEffectEnabled () {
+            return this.effEnabled;
+        },
+
+        setEffectVolume (v) {
+            if (this.effVolume != v) {
+                cc.sys.localStorage.setItem('effVolume', v);
+                this.effVolume = v;
+            }
+        },
+
+        getEffectVolume () {
+            return this.effVolume;
+        },
+
         clean () {
             this.stopAll();
             this.uncacheAll();
             this.curBGMUrl = null;
+            this.curBGMClip = null;
         }
     }
 });

@@ -16,7 +16,6 @@ cc.Class({
         this.phLowTime = 0; // 体力值小于最大体力的时间
 
         this.vibOn = true;  // 震动开关
-        this.soundOn = true;  // 声音开关
 
         this.guide = 0;  //  引导步骤
 
