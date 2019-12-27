@@ -37,11 +37,11 @@ cc.Class({
 
     _updateState (ani) {
         let posX = this.isOn ? this.bgOffSp.node.x : this.bgOnSp.node.x ;
-        if (CC_EDITOR) {
+        if (CC_EDITOR || !ani) {
             this.barSp.node.x = posX;
         } else {
             this.barSp.node.stopAllActions();
-            this.barSp.node.runAction(cc.moveTo(ani ? 0.1 : 0, cc.v2(posX, this.barSp.node.y)));
+            this.barSp.node.runAction(cc.moveTo(0.1, cc.v2(posX, this.barSp.node.y)));
         }
     },
 
