@@ -19,5 +19,9 @@ cc.Class({
 
     debugCall () {
         zy.director.createPop("prefabs/pop/DebugPop");
+    },
+
+    settingCall () {
+        zy.director.createPop("prefabs/pop/SettingPop");
     }
 });

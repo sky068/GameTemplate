@@ -13,19 +13,19 @@ cc.Class({
     },
 
     init(params) {
-        if (zy.dataMng.userData.vibOn) {
-            this.vibNode.getComponent(cc.Animation).play("setBtnOn", 10);
-        } else {
-            this.vibNode.getComponent(cc.Animation).play("setBtnOff", 10);
-        }
-
-        if (zy.dataMng.userData.soundOn) {
-            this.soundsNode.getComponent(cc.Animation).play("setBtnOn", 10);
-        } else {
-            this.soundsNode.getComponent(cc.Animation).play("setBtnOff", 10);
-        }
-
-        this.versionLabel.string = "v" + MKSystem.getAppVersion() + "  c" + CHANNEL_ID;
+        // if (zy.dataMng.userData.vibOn) {
+        //     this.vibNode.getComponent(cc.Animation).play("setBtnOn", 10);
+        // } else {
+        //     this.vibNode.getComponent(cc.Animation).play("setBtnOff", 10);
+        // }
+        //
+        // if (zy.dataMng.userData.soundOn) {
+        //     this.soundsNode.getComponent(cc.Animation).play("setBtnOn", 10);
+        // } else {
+        //     this.soundsNode.getComponent(cc.Animation).play("setBtnOff", 10);
+        // }
+        //
+        // this.versionLabel.string = "v" + MKSystem.getAppVersion() + "  c" + CHANNEL_ID;
     },
 
     onVibCall() {

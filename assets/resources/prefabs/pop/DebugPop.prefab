@@ -2459,7 +2459,7 @@
       "__id__": 1
     },
     "_enabled": true,
-    "maskOpacity": 255,
+    "maskOpacity": 128,
     "touchClose": true,
     "_id": ""
   },
