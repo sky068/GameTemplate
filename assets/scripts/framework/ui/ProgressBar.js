@@ -21,6 +21,7 @@ cc.Class({
             }
             return;
         }
+        this.unscheduleAllCallbacks(); // 若在进度中则停止重新开始
         this.speed = (p-this.progress) / t;
         this.desProgress = p;
         this.progressCb = cb;
