@@ -50,7 +50,7 @@ cc.Class({
 
                 if (cc.sys.os === cc.sys.OS_ANDROID) {
                     info = jsb.reflection.callStaticMethod(PACKAGENAME, 'getDeviceInfo', '()Ljava/lang/String;');
-                } else {
+                } else if (cc.sys.os == cc.sys.OS_IOS){
                     info = jsb.reflection.callStaticMethod('PlatformUtils', 'getDeviceInfo');
                 }
 
