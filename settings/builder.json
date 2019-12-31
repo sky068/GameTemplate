@@ -14,7 +14,7 @@
     "orientation": "portrait",
     "subContext": ""
   },
-  "encryptJs": true,
+  "encryptJs": false,
   "excludeScenes": [],
   "fb-instant-games": {},
   "includeSDKBox": false,
@@ -29,14 +29,14 @@
     "portrait": true,
     "upsideDown": false
   },
-  "packageName": "com.zhanyou.inland.towerdefensegame",
+  "packageName": "com.gamelover.gametemp",
   "qqplay": {
     "REMOTE_SERVER_ROOT": "",
     "orientation": "portrait",
     "zip": false
   },
   "startScene": "da615b69-ce32-4328-92f0-68c60929ba75",
-  "title": "PlanetGuardian",
+  "title": "GameTemplate",
   "webOrientation": "auto",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
