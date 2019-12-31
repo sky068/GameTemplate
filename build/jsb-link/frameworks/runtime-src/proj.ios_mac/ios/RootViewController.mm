@@ -44,6 +44,17 @@ static UIImageView * splashView = nil;
     });
 }
 
+// 添加splash，防止启动时长时间黑屏
+- (void) addSplashView {
+    if (splashView == nil) {
+        NSLog(@"iOS 添加splash view");
+        UIImage *img = [UIImage imageNamed:@"LaunchScreenBackground.png"];
+        splashView = [[UIImageView alloc]initWithImage:img];
+        splashView.frame =CGRectMake(0,([UIScreen mainScreen].bounds.size.height-img.size.height*[UIScreen mainScreen].bounds.size.width/img.size.width)/2, [UIScreen mainScreen].bounds.size.width, img.size.height*[UIScreen mainScreen].bounds.size.width/img.size.width);
+        [self.view addSubview:splashView];
+    }
+}
+
 /*
 // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -63,20 +74,6 @@ return self;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self addSplashView];
-    NSLog(@"iOS: rootview did load");
-}
-
-// 添加splash，防止启动时候长时间黑屏
-- (void) addSplashView {
-    if (splashView == nil) {
-        NSLog(@"iOS 添加splash view");
-        UIImage *img = [UIImage imageNamed:@"LaunchScreenBackground.png"];
-        splashView = [[UIImageView alloc]initWithImage:img];
-        splashView.frame =CGRectMake(0,([UIScreen mainScreen].bounds.size.height-img.size.height*[UIScreen mainScreen].bounds.size.width/img.size.width)/2, [UIScreen mainScreen].bounds.size.width, img.size.height*[UIScreen mainScreen].bounds.size.width/img.size.width);
-        [self.view addSubview:splashView];
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

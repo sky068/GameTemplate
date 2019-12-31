@@ -2,6 +2,8 @@
  * Created by skyxu on 2019/12/16.
  */
 
+const PACKAGENAME = "com/zygame/utils/PlatformUtils";
+
 cc.Class({
     extends: cc.Component,
 
@@ -39,7 +41,7 @@ cc.Class({
 
 
         init: function () {
-            const PROCUDT_ID = "com.zhanyou.towerdefensegame";
+            const PROCUDT_ID = "com.game.test";
             this.osName = cc.sys.os;
             this.osVersion = cc.sys.osVersion;
             this.language = cc.sys.language;

@@ -31,7 +31,6 @@
 #import "SDKWrapper.h"
 #import "platform/ios/CCEAGLView-ios.h"
 
-#import "AppsFlyerHelper.h"
 
 
 using namespace cocos2d;
@@ -46,8 +45,6 @@ Application* app = nullptr;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[SDKWrapper getInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-    [[AppsFlyerHelper getInstance]didFinishLaunching];
-    
     // Add the view controller's view to the window and display.
     float scale = [[UIScreen mainScreen] scale];
     CGRect bounds = [[UIScreen mainScreen] bounds];
@@ -55,7 +52,7 @@ Application* app = nullptr;
     
     // cocos2d application instance
     app = new AppDelegate(bounds.size.width * scale, bounds.size.height * scale);
-    app->setMultitouch(false);
+    app->setMultitouch(true);
     
     // Use RootViewController to manage CCEAGLView
     _viewController = [[RootViewController alloc]init];
@@ -101,7 +98,6 @@ Application* app = nullptr;
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
     [[SDKWrapper getInstance] applicationDidBecomeActive:application];
-    [[AppsFlyerHelper getInstance]applicationDidBecomeActive];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {

@@ -35,15 +35,11 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
-import com.up.ads.UPAdsSdk;
-import com.zhanyou.towerdefensegame.R;
-import com.zygame.utils.AFHelper;
-import com.zygame.utils.FBHelper;
+import com.gamelover.gametemp.R;
 import com.zygame.utils.PlatformUtils;
 
 public class AppActivity extends Cocos2dxActivity {
     public ImageView splashImg = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,23 +51,23 @@ public class AppActivity extends Cocos2dxActivity {
             // Don't need to finish it again since it's finished in super.onCreate .
             return;
         }
+        // DO OTHER INITIALIZATION BELOW
+//        SDKWrapper.getInstance().init(this);
 
         //应用运行时，保持屏幕高亮，不锁屏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         // fixme: splash图片，进入游戏移除
-        splashImg = new ImageView(this);
-        splashImg.setScaleType(ImageView.ScaleType.FIT_XY);
-        splashImg.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        splashImg.setImageResource(R.mipmap.launch);
-        mFrameLayout.addView(splashImg);
+//        splashImg = new ImageView(this);
+//        splashImg.setScaleType(ImageView.ScaleType.FIT_XY);
+//        splashImg.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+//        splashImg.setImageResource(R.mipmap.launch);
+//        mFrameLayout.addView(splashImg);
 
         // DO OTHER INITIALIZATION BELOW
 //        SDKWrapper.getInstance().init(this);
 
         PlatformUtils.setContext(this);
-        FBHelper.initFb(this);
-        AFHelper.initAF(this);
     }
     
     @Override
@@ -79,7 +75,7 @@ public class AppActivity extends Cocos2dxActivity {
         Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
         // TestCpp should create stencil buffer
         glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
-//        SDKWrapper.getInstance().setGLSurfaceView(glSurfaceView, this);
+        SDKWrapper.getInstance().setGLSurfaceView(glSurfaceView, this);
 
         return glSurfaceView;
     }
@@ -87,77 +83,75 @@ public class AppActivity extends Cocos2dxActivity {
     @Override
     protected void onResume() {
         super.onResume();
-//        SDKWrapper.getInstance().onResume();
+        SDKWrapper.getInstance().onResume();
 
-        UPAdsSdk.onApplicationResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-//        SDKWrapper.getInstance().onPause();
+        SDKWrapper.getInstance().onPause();
 
-        UPAdsSdk.onApplicationPause();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        SDKWrapper.getInstance().onDestroy();
+        SDKWrapper.getInstance().onDestroy();
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        SDKWrapper.getInstance().onActivityResult(requestCode, resultCode, data);
+        SDKWrapper.getInstance().onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-//        SDKWrapper.getInstance().onNewIntent(intent);
+        SDKWrapper.getInstance().onNewIntent(intent);
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-//        SDKWrapper.getInstance().onRestart();
+        SDKWrapper.getInstance().onRestart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-//        SDKWrapper.getInstance().onStop();
+        SDKWrapper.getInstance().onStop();
     }
         
     @Override
     public void onBackPressed() {
-//        SDKWrapper.getInstance().onBackPressed();
+        SDKWrapper.getInstance().onBackPressed();
         super.onBackPressed();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
-//        SDKWrapper.getInstance().onConfigurationChanged(newConfig);
+        SDKWrapper.getInstance().onConfigurationChanged(newConfig);
         super.onConfigurationChanged(newConfig);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        SDKWrapper.getInstance().onRestoreInstanceState(savedInstanceState);
+        SDKWrapper.getInstance().onRestoreInstanceState(savedInstanceState);
         super.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-//        SDKWrapper.getInstance().onSaveInstanceState(outState);
+        SDKWrapper.getInstance().onSaveInstanceState(outState);
         super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onStart() {
-//        SDKWrapper.getInstance().onStart();
+        SDKWrapper.getInstance().onStart();
         super.onStart();
     }
 }

@@ -33,8 +33,5 @@
 
 @property(nonatomic, readonly) RootViewController* viewController;
 
-// upltv add
-@property(strong, nonatomic) UIWindow* window;
-
 @end
 

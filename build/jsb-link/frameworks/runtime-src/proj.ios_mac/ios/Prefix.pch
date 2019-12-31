@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'PlanetGuardian' target in the 'PlanetGuardian' project
+// Prefix header for all source files of the 'GameTemplate' target in the 'GameTemplate' project
 //
 
 #ifdef __OBJC__

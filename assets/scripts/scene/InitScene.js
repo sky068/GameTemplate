@@ -76,7 +76,7 @@ cc.Class({
         zy.constData.init();
 
         // shader工具
-        zy.shaderUtils = require('./core/ShaderUtils');
+        zy.shaderUtils = require('./../framework/common/ShaderUtils');
         zy.shaderUtils.init();
 
         // 通用UI工具

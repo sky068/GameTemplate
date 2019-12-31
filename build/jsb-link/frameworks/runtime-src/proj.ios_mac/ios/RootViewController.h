@@ -31,6 +31,4 @@
 
 }
 - (BOOL)prefersStatusBarHidden;
-// 进入游戏后移除splashView
-+ (void) removeSplashView;
 @end
