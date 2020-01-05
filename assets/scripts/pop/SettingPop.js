@@ -34,11 +34,12 @@ cc.Class({
     onSoundsCall (sc) {
         zy.audio.playEffect(zy.audio.Effect.CommonClick);
         zy.audio.setBGMEnabled(sc.isOn);
-        zy.audio.setEffectEnabled(sc.isOn);
+        zy.audio.setEffectsEnabled(sc.isOn);
     },
 
     sliderCallback (slider) {
         zy.audio.setBGMVolume(slider.progress);
+        zy.audio.setEffectsVolume(slider.progress);
     },
 
     closeCallback() {

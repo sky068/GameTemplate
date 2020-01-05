@@ -160,7 +160,7 @@ cc.Class({
             return this.bgmVolume;
         },
 
-        setEffectEnabled (enabled) {
+        setEffectsEnabled (enabled) {
             if (this.effEnabled != enabled) {
                 cc.sys.localStorage.setItem('effEnabled', String(enabled));
                 this.effEnabled = enabled;
@@ -170,14 +170,15 @@ cc.Class({
             }
         },
 
-        getEffectEnabled () {
+        getEffectsEnabled () {
             return this.effEnabled;
         },
 
-        setEffectVolume (v) {
+        setEffectsVolume (v) {
             if (this.effVolume != v) {
                 cc.sys.localStorage.setItem('effVolume', v);
                 this.effVolume = v;
+                cc.audioEngine.setEffectsVolume(this.effVolume);
             }
         },
 
