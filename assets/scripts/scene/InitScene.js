@@ -6,57 +6,34 @@
 cc.Class({
     extends: cc.Component,
     properties: {
-        logoAni: sp.Skeleton,
     },
 
     onLoad() {
         /**
          * 更新包之后，删除热更新目录和记录
          */
-        // 语言
-        // zc.language = 'cn';
-        // if (cc.sys.isNative) {
-        //     let baseLocalVersion = cc.sys.localStorage.getItem('BASE_LOCAL_VERSION');
-        //     // 写本地版本记录
-        //     cc.sys.localStorage.setItem('BASE_LOCAL_VERSION', BASE_LOCAL_VERSION);
-        //     if (baseLocalVersion != '' && baseLocalVersion != BASE_LOCAL_VERSION) {
-        //         // 写热更新版本记录
-        //         cc.sys.localStorage.setItem('localVersion' + VERSION_NAME, '');
-        //         cc.sys.localStorage.setItem('tableVersion' + VERSION_NAME + zc.language, '');
-        //         cc.sys.localStorage.setItem('tableList' + VERSION_NAME + zc.language, '');
-        //         // 删除沙盒目录
-        //         jsb.fileUtils.removeDirectory(HOT_UPDATE_PATH);
-        //         // 重启
-        //         cc.game.restart();
-        //     } else {
-        //         this.init();
-        //     }
-        // } else {
-        //     this.init();
-        // }
+
+        if (cc.sys.isNative) {
+            let baseLocalVersion = cc.sys.localStorage.getItem('BASE_LOCAL_VERSION');
+            // 写本地版本记录
+            cc.sys.localStorage.setItem('BASE_LOCAL_VERSION', BASE_LOCAL_VERSION);
+            if (baseLocalVersion != '' && baseLocalVersion != BASE_LOCAL_VERSION) {
+                // 大版本更新，需要删除之前热更新版本内容
+                let path = ((jsb.fileUtils ? jsb.fileUtils.getWritablePath() : '/') + HOT_UPDATE_SUB_PATH);
+                jsb.fileUtils.removeDirectory(path);
+                cc.log("大版本更新，path: " + path);
+                // 重启
+                cc.game.restart();
+            } else {
+                this.init();
+            }
+        } else {
+            this.init();
+        }
 
         cc.debug.setDisplayStats(DEBUG_OPEN); //隐藏左下方测试信息
 
-        this.init();
-    },
-
-    start() {
-        const PlatformUtils = require("./../framework/platform/PlatformUtils");
-        PlatformUtils.rmSplash();
-        this.loadComplete = false;
-        this.logoAni.setCompleteListener(()=>{
-            this.logoAni.setCompleteListener(null);
-            this.schedule(this.checkStartGame, 0.1);
-        });
-        this.logoAni.setAnimation(0, "play1", false);
-    },
-
-    checkStartGame(dt) {
-        cc.log("===> check start game");
-        if (this.loadComplete) {
-            this.unschedule(this.checkStartGame);
-            zy.director.loadScene("GameScene");
-        }
+        // this.init();
     },
 
     init() {
@@ -98,7 +75,6 @@ cc.Class({
         //--------以下放到最后处理-------
         zy.director = require("./../framework/common/Director");
         zy.director.init();
-        zy.director.preloadScene("GameScene");
 
         // 配置表读取
         const DataMng = require("./../data/DataMng");
@@ -110,7 +86,7 @@ cc.Class({
             // zy.guide.init({
             //     step: zy.dataMng.userData.guide,
             // });
-            this.loadComplete = true;
+            zy.director.loadScene("GameScene");
         });
 
     },

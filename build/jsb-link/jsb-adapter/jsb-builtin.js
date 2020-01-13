@@ -2314,180 +2314,180 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
  * @param {Event|{type:string}} event The original event to wrap.
  */
 var Event = function () {
-  function Event(type, eventInit) {
-    _classCallCheck(this, Event);
+    function Event(type, eventInit) {
+        _classCallCheck(this, Event);
 
-    this._type = type;
-    this._target = null;
-    this._eventPhase = 2;
-    this._currentTarget = null;
-    this._canceled = false;
-    this._stopped = false; // The flag to stop propagation immediately.
-    this._passiveListener = null;
-    this._timeStamp = Date.now();
-  }
-
-  /**
-   * The type of this event.
-   * @type {string}
-   */
-
-
-  _createClass(Event, [{
-    key: "composedPath",
-
-
-    /**
-     * @returns {EventTarget[]} The composed path of this event.
-     */
-    value: function composedPath() {
-      var currentTarget = this._currentTarget;
-      if (currentTarget === null) {
-        return [];
-      }
-      return [currentTarget];
+        this._type = type;
+        this._target = null;
+        this._eventPhase = 2;
+        this._currentTarget = null;
+        this._canceled = false;
+        this._stopped = false; // The flag to stop propagation immediately.
+        this._passiveListener = null;
+        this._timeStamp = Date.now();
     }
 
     /**
-     * The target of this event.
-     * @type {number}
+     * The type of this event.
+     * @type {string}
      */
 
-  }, {
-    key: "stopPropagation",
+
+    _createClass(Event, [{
+        key: "composedPath",
 
 
-    /**
-     * Stop event bubbling.
-     * @returns {void}
-     */
-    value: function stopPropagation() {}
+        /**
+         * @returns {EventTarget[]} The composed path of this event.
+         */
+        value: function composedPath() {
+            var currentTarget = this._currentTarget;
+            if (currentTarget === null) {
+                return [];
+            }
+            return [currentTarget];
+        }
 
-    /**
-     * Stop event bubbling.
-     * @returns {void}
-     */
+        /**
+         * The target of this event.
+         * @type {number}
+         */
 
-  }, {
-    key: "stopImmediatePropagation",
-    value: function stopImmediatePropagation() {
-      this._stopped = true;
-    }
-
-    /**
-     * The flag to be bubbling.
-     * @type {boolean}
-     */
-
-  }, {
-    key: "preventDefault",
+    }, {
+        key: "stopPropagation",
 
 
-    /**
-     * Cancel this event.
-     * @returns {void}
-     */
-    value: function preventDefault() {
-      if (this._passiveListener !== null) {
-        console.warn("Event#preventDefault() was called from a passive listener:", this._passiveListener);
-        return;
-      }
-      if (!this.cancelable) {
-        return;
-      }
+        /**
+         * Stop event bubbling.
+         * @returns {void}
+         */
+        value: function stopPropagation() {}
 
-      this._canceled = true;
-    }
+        /**
+         * Stop event bubbling.
+         * @returns {void}
+         */
 
-    /**
-     * The flag to indicate cancellation state.
-     * @type {boolean}
-     */
+    }, {
+        key: "stopImmediatePropagation",
+        value: function stopImmediatePropagation() {
+            this._stopped = true;
+        }
 
-  }, {
-    key: "type",
-    get: function get() {
-      return this._type;
-    }
+        /**
+         * The flag to be bubbling.
+         * @type {boolean}
+         */
 
-    /**
-     * The target of this event.
-     * @type {EventTarget}
-     */
-
-  }, {
-    key: "target",
-    get: function get() {
-      return this._target;
-    }
-
-    /**
-     * The target of this event.
-     * @type {EventTarget}
-     */
-
-  }, {
-    key: "currentTarget",
-    get: function get() {
-      return this._currentTarget;
-    }
-  }, {
-    key: "isTrusted",
-    get: function get() {
-      // https://heycam.github.io/webidl/#Unforgeable
-      return false;
-    }
-  }, {
-    key: "timeStamp",
+    }, {
+        key: "preventDefault",
 
 
-    /**
-     * The unix time of this event.
-     * @type {number}
-     */
-    get: function get() {
-      return this._timeStamp;
-    }
-  }, {
-    key: "eventPhase",
-    get: function get() {
-      return this._eventPhase;
-    }
-  }, {
-    key: "bubbles",
-    get: function get() {
-      return false;
-    }
+        /**
+         * Cancel this event.
+         * @returns {void}
+         */
+        value: function preventDefault() {
+            if (this._passiveListener !== null) {
+                console.warn("Event#preventDefault() was called from a passive listener:", this._passiveListener);
+                return;
+            }
+            if (!this.cancelable) {
+                return;
+            }
 
-    /**
-     * The flag to be cancelable.
-     * @type {boolean}
-     */
+            this._canceled = true;
+        }
 
-  }, {
-    key: "cancelable",
-    get: function get() {
-      return true;
-    }
-  }, {
-    key: "defaultPrevented",
-    get: function get() {
-      return this._canceled;
-    }
+        /**
+         * The flag to indicate cancellation state.
+         * @type {boolean}
+         */
 
-    /**
-     * The flag to be composed.
-     * @type {boolean}
-     */
+    }, {
+        key: "type",
+        get: function get() {
+            return this._type;
+        }
 
-  }, {
-    key: "composed",
-    get: function get() {
-      return false;
-    }
-  }]);
+        /**
+         * The target of this event.
+         * @type {EventTarget}
+         */
 
-  return Event;
+    }, {
+        key: "target",
+        get: function get() {
+            return this._target;
+        }
+
+        /**
+         * The target of this event.
+         * @type {EventTarget}
+         */
+
+    }, {
+        key: "currentTarget",
+        get: function get() {
+            return this._currentTarget;
+        }
+    }, {
+        key: "isTrusted",
+        get: function get() {
+            // https://heycam.github.io/webidl/#Unforgeable
+            return false;
+        }
+    }, {
+        key: "timeStamp",
+
+
+        /**
+         * The unix time of this event.
+         * @type {number}
+         */
+        get: function get() {
+            return this._timeStamp;
+        }
+    }, {
+        key: "eventPhase",
+        get: function get() {
+            return this._eventPhase;
+        }
+    }, {
+        key: "bubbles",
+        get: function get() {
+            return false;
+        }
+
+        /**
+         * The flag to be cancelable.
+         * @type {boolean}
+         */
+
+    }, {
+        key: "cancelable",
+        get: function get() {
+            return true;
+        }
+    }, {
+        key: "defaultPrevented",
+        get: function get() {
+            return this._canceled;
+        }
+
+        /**
+         * The flag to be composed.
+         * @type {boolean}
+         */
+
+    }, {
+        key: "composed",
+        get: function get() {
+            return false;
+        }
+    }]);
+
+    return Event;
 }();
 
 /**

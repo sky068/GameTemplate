@@ -1,1 +1,0 @@
-{"__type__":"cc.AnimationClip","_name":"sidebar_hide","_duration":0.16666666666666666,"curveData":{"paths":{"mask":{"props":{"active":[{"frame":0,"value":false}]}},"sideBg":{"props":{"x":[{"frame":0,"value":-325,"curve":"cubicIn"},{"frame":0.16666666666666666,"value":-425}]}}}}}

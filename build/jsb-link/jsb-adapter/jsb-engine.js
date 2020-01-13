@@ -1409,21 +1409,21 @@ var handleVolume = function handleVolume(volume) {
  ****************************************************************************/
 
 cc.game.restart = function () {
-    __restartVM();
+  __restartVM();
 };
 
 jsb.onHide = function () {
-    cc.game.emit(cc.game.EVENT_HIDE);
+  cc.game.emit(cc.game.EVENT_HIDE);
 };
 
 jsb.onShow = function () {
-    cc.game.emit(cc.game.EVENT_SHOW);
+  cc.game.emit(cc.game.EVENT_SHOW);
 };
 
 jsb.onResize = function (size) {
-    if (size.width === 0 || size.height === 0) return;
-    window.resize(size.width, size.height);
-    cc.view.setCanvasSize(window.innerWidth, window.innerHeight);
+  if (size.width === 0 || size.height === 0) return;
+  window.resize(size.width, size.height);
+  cc.view.setCanvasSize(window.innerWidth, window.innerHeight);
 };
 
 },{}],8:[function(require,module,exports){
@@ -1693,34 +1693,34 @@ var _typedArray_temp = new Float32Array(16);
 var _mat4_temp = math.mat4.create();
 
 function _mat4ToArray(typedArray, mat4) {
-    typedArray[0] = mat4.m00;
-    typedArray[1] = mat4.m01;
-    typedArray[2] = mat4.m02;
-    typedArray[3] = mat4.m03;
-    typedArray[4] = mat4.m04;
-    typedArray[5] = mat4.m05;
-    typedArray[6] = mat4.m06;
-    typedArray[7] = mat4.m07;
-    typedArray[8] = mat4.m08;
-    typedArray[9] = mat4.m09;
-    typedArray[10] = mat4.m10;
-    typedArray[11] = mat4.m11;
-    typedArray[12] = mat4.m12;
-    typedArray[13] = mat4.m13;
-    typedArray[14] = mat4.m14;
-    typedArray[15] = mat4.m15;
+  typedArray[0] = mat4.m00;
+  typedArray[1] = mat4.m01;
+  typedArray[2] = mat4.m02;
+  typedArray[3] = mat4.m03;
+  typedArray[4] = mat4.m04;
+  typedArray[5] = mat4.m05;
+  typedArray[6] = mat4.m06;
+  typedArray[7] = mat4.m07;
+  typedArray[8] = mat4.m08;
+  typedArray[9] = mat4.m09;
+  typedArray[10] = mat4.m10;
+  typedArray[11] = mat4.m11;
+  typedArray[12] = mat4.m12;
+  typedArray[13] = mat4.m13;
+  typedArray[14] = mat4.m14;
+  typedArray[15] = mat4.m15;
 }
 
 cc.Node.prototype.getWorldRTInAB = function () {
-    this.getWorldRT(_mat4_temp);
-    _mat4ToArray(_typedArray_temp, _mat4_temp);
-    return _typedArray_temp;
+  this.getWorldRT(_mat4_temp);
+  _mat4ToArray(_typedArray_temp, _mat4_temp);
+  return _typedArray_temp;
 };
 
 cc.Node.prototype.getWorldMatrixInAB = function () {
-    this._updateWorldMatrix();
-    _mat4ToArray(_typedArray_temp, this._worldMatrix);
-    return _typedArray_temp;
+  this._updateWorldMatrix();
+  _mat4ToArray(_typedArray_temp, this._worldMatrix);
+  return _typedArray_temp;
 };
 
 },{}],10:[function(require,module,exports){

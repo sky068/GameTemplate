@@ -44,3 +44,7 @@ if (CHANNEL_ID == 101 || CHANNEL_ID == 102) {
 window.UPLTV_IOS_APPKEY = "e6c55d8be2d0";
 window.UPLTV_ANDROID_APPKEY = "889576bfeaf9";
 
+window.BASE_LOCAL_VERSION = '2020011302';  // 非常重要，每次发包（上传包）都需要修改，保障最新内容覆盖热更目录
+window.VERSION_NAME = "1.0.0";
+window.HOT_UPDATE_SUB_PATH = "zy/download" + VERSION_NAME;
+

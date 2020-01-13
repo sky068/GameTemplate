@@ -128,7 +128,20 @@ window.boot = function () {
                         console.log('Success to load scene: ' + launchScene);
                     }
                     else if (CC_BUILD) {
-                        setTimeout(function () {
+                        setTimeout(function () { 
+
+    if (cc && cc.sys.isNative) { 
+        var hotUpdateSearchPaths = cc.sys.localStorage.getItem('HotUpdateSearchPaths'); 
+        if (hotUpdateSearchPaths) { 
+            jsb.fileUtils.setSearchPaths(JSON.parse(hotUpdateSearchPaths)); 
+            console.log('[main.js] 热更新SearchPath: ' + JSON.parse(hotUpdateSearchPaths));
+        }else {
+            console.log('[main.js] 未获取到热更新资源路径!');
+        }
+    }else {
+        console.log('[main.js] 不是native平台!');
+    }
+
                             loadScene(launchScene);
                         }, 1000);
                     }

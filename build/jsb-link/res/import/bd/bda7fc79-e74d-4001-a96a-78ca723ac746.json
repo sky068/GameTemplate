@@ -1,1 +1,0 @@
-{"__type__":"cc.AnimationClip","_name":"gun_5_bullet_1_boom","_duration":1,"sample":30,"curveData":{"paths":{},"comps":{"cc.CircleCollider":{"radius":[{"frame":0,"value":0,"curve":"quadOut"},{"frame":1,"value":150}]}}},"events":[{"frame":1,"func":"gun5_bullet5_1_2","params":[]}]}

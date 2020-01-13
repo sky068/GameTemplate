@@ -1,0 +1,52 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "NormalEffect",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "NormalEffect",
+    "_level": 1,
+    "_components": [
+      {
+        "__type__": "sp.Skeleton",
+        "node": {
+          "__id__": 1
+        },
+        "_materials": [
+          {
+            "__uuid__": "7a/QZLET9IDreTiBfRn2PD"
+          }
+        ],
+        "_preCacheMode": 0,
+        "loop": false,
+        "premultipliedAlpha": false,
+        "_animationName": "play4",
+        "_playTimes": 1,
+        "_N$skeletonData": {
+          "__uuid__": "eetsZ5EiNC06+ZN/3I3U4/"
+        },
+        "_N$enableBatch": true
+      },
+      {
+        "__type__": "2aa43sDH+1KEJccQRsqe8BX",
+        "node": {
+          "__id__": 1
+        }
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "deEMUCxSdNobR6jPuyMZCD"
+      },
+      "fileId": "d64P6q3T1L4KkAPQIc+EWY"
+    }
+  }
+]

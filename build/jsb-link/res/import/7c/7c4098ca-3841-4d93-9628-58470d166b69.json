@@ -1,0 +1,50 @@
+[
+  {
+    "__type__": "cc.Prefab",
+    "_name": "Logo",
+    "data": {
+      "__id__": 1
+    }
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "logo copy",
+    "_level": 1,
+    "_components": [
+      {
+        "__type__": "sp.Skeleton",
+        "node": {
+          "__id__": 1
+        },
+        "_materials": [
+          {
+            "__uuid__": "7a/QZLET9IDreTiBfRn2PD"
+          }
+        ],
+        "defaultAnimation": "play1",
+        "_preCacheMode": 1,
+        "_cacheMode": 1,
+        "premultipliedAlpha": false,
+        "_animationName": "play1",
+        "_N$skeletonData": {
+          "__uuid__": "a1m3Ec5b5L8bEdtX27XspO"
+        },
+        "_N$enableBatch": true
+      }
+    ],
+    "_prefab": {
+      "__type__": "cc.PrefabInfo",
+      "root": {
+        "__id__": 1
+      },
+      "asset": {
+        "__uuid__": "7cQJjKOEFNk5YoWEcNFmtp"
+      },
+      "fileId": "5dy/99NbdCgpd8D4oZQa4k"
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "y": 337.981
+    }
+  }
+]
